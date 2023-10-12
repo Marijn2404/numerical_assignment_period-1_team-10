@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+scratchpad.ipynb
 
 # C extensions
 *.so
