@@ -410,6 +410,7 @@ def main():
     print(bisection(funderivativel, 0.1, 3, (mu_hat, arr)))
     print(modfalsepos(funderivativel, 0.1, 3, (mu_hat, arr)))
     print(falsepos(funderivativel, 0.1, 3, (mu_hat, arr)))
+    print(rootfindscipy(funderivativel, 0.1, 3, (mu_hat, arr)))
 
 if __name__ == '__main__':
     main()
