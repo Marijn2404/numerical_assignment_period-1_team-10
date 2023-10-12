@@ -23,7 +23,7 @@ def timeit(func: typing.Callable):
     return wrapper
 
 def funf(x:float, lmbda:float, mu:float) -> float:
-    """Function for the PDF
+    """Function for the inverse Gaussian distribution PDF
 
     Args:
         x (float): Value of x
@@ -130,7 +130,7 @@ def integratescipy(f:typing.Callable, a:float, b:float, params:typing.Dict[float
 # PART C
 
 def funl(lambdas: np.ndarray, mu: float, arr: np.ndarray) -> np.ndarray:
-    """Log likelyhood function for function f
+    """Log likelyhood function for the inverse Gaussian distribution
 
     Args:
         lambdas (np.ndarray): the list of lambdas to compute the function for
@@ -186,7 +186,7 @@ def plotfunl(axes, mu_hat: float, arr: np.ndarray, leftBound: float, rightBound:
     return axes[0]
 
 def plotfunderivativel(axes, mu_hat: float, arr: np.ndarray, leftBound: float, rightBound: float, delta: float):
-    """Plot the log-likelyhood function
+    """Plot the derivative of the log-likelyhood function
 
     Args:
         axes (_type_): axes object from Matplotlib
