@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import time
 from scipy.optimize import ridder
 
-SOL_STRING = "A solution was found in {0} iterations with |a - b| = {1}, f(c) = {2}"
-NO_SOL_STRING = "A solution was could not be found in {0} iterations, f(c) = {1}"
+SOL_STRING = "A solution was found in {0} iterations with |a - b| = {1}, f(c) = {2}, a = {3}, b = {4}"
+NO_SOL_STRING = "A solution was could not be found in {0} iterations, f(c) = {1}, a = {2}, b = {3}"
 
 def timeit(func: typing.Callable):
     """Timeit decorator, please before a function to measure duration.
@@ -240,7 +240,7 @@ def bisection(f: typing.Callable[[float], float], a: float, b: float, args: typi
         f_c = f(c, *args)
         
         if f_c == 0 or np.abs(b-a) < epsilon:
-            print(SOL_STRING.format(n, np.abs(b-a), f_c))
+            print(SOL_STRING.format(n, np.abs(b-a), f_c, a, b))
             return c
         n += 1
 
@@ -249,7 +249,7 @@ def bisection(f: typing.Callable[[float], float], a: float, b: float, args: typi
         else:
             b = c
             
-    print(NO_SOL_STRING.format(n, f_c))
+    print(NO_SOL_STRING.format(n, f_c, a, b))
     return c
 
 @timeit
@@ -282,7 +282,7 @@ def falsepos(f: typing.Callable[[float], float], a: float, b: float, args: typin
         f_c = f(c, *args)
 
         if f_c == 0 or abs(b-a)<epsilon:
-            print(SOL_STRING.format(n, abs(b-a), f_c))
+            print(SOL_STRING.format(n, abs(b-a), f_c, a, b))
             return c
 
         if f_a * f_c < 0:
@@ -292,7 +292,7 @@ def falsepos(f: typing.Callable[[float], float], a: float, b: float, args: typin
         
         n += 1
         
-    print(NO_SOL_STRING.format(n, f_c))
+    print(NO_SOL_STRING.format(n, f_c, a, b))
     return c
 
 @timeit
@@ -324,7 +324,7 @@ def modfalsepos(f: typing.Callable[[float], float], a: float, b: float, args: ty
         f_c = f(c, *args)
 
         if f_c == 0 or abs(b - a) < epsilon:
-            print(SOL_STRING.format(n, abs(b-a), f_c))
+            print(SOL_STRING.format(n, abs(b-a), f_c, a, b))
             return c
 
         if f_a * f_c < 0:
@@ -346,7 +346,8 @@ def modfalsepos(f: typing.Callable[[float], float], a: float, b: float, args: ty
             b = c
         else:
             a = c
-
+        
+    print(NO_SOL_STRING.format(n, f_c, a, b))
     return c
 
 @timeit
