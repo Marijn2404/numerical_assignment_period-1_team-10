@@ -370,7 +370,7 @@ def rootfindscipy(f: typing.Callable[[float], float], a: float, b: float, args: 
     return ridder(f, a, b,  args, full_output=True)
 
 # MAIN
-
+@timeit
 def main():
     """
     magic numbers

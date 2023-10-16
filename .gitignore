@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 scratchpad.ipynb
+ReportTeam10.pdf
+Assignment1Team10.zip
 
 # C extensions
 *.so
